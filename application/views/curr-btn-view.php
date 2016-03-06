@@ -1,0 +1,1 @@
+<a href="<?php echo base_url("index.php/curriculum/view_curriculum/$program_code/$curriculum_year"); ?>" class="btn btn-default btn-xs" >View</a>

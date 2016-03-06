@@ -1,7 +1,25 @@
 	<!--start content-->
 	<div class="container">
 		<div class="content-wrapper">
+			
+			
+
+			<div class="ptcontainer">
+
+				<div class = "pagetitle">
+           			<p> Headline </p>
+            	</div>
+            
+            	<div class = "pagetitle" id="downadd">
+					<a href="<?php echo base_url('index.php/pages/addevent'); ?>" class="add">Add &#10133;</a>
+            	</div>
+
+            </div>
+
+
 			<div class="content">
+			
+			
 				<div class="card-container">
 					<div class="card">
 					    <!-- Header -->

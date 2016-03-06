@@ -112,7 +112,7 @@
           </tr>
         </tbody>
       </table>
-      <a href="calendar.html" class="cal">View Full Calendar</a>					
+      <a href="<?php echo base_url('index.php/pages/calendar'); ?>" class="cal">View Full Calendar</a>					
     </div>
       <div class="events">
       	<h1>Event Details</h1>
@@ -120,7 +120,7 @@
       		<li>Event detail 1</li>
       		<li>Event detail 1</li>
       	</ul>
-      	<a href="eventlist.html" class="cal">View All Events</a>
+      	<a href="<?php echo base_url('index.php/pages/eventlist'); ?>" class="cal">View All Events</a>
       </div>
 </div>
 			<!--end calendar-->

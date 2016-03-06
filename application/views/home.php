@@ -16,7 +16,7 @@
 	</head>
 <body>
 <div class="toplogo">
-	<a href='#'><img src="<?php echo base_url('assets/css/temp/dcs-sign.png'); ?>" /></a>
+	<a href="<?php echo base_url('index.php/pages/home'); ?>"><img src="<?php echo base_url('assets/css/temp/dcs-sign.png'); ?>" /></a>
 </div>
 
 <!--start carousel-->
@@ -71,8 +71,9 @@
 			<ul>
 				
 				<li><a href="<?php echo base_url('index.php/pages/news'); ?>">News</a></li>
-				<li><a href='#'>Events</a></li>
-				<li><a href='#'>Program</a></li>
+				<li><a href='<?php echo base_url('index.php/pages/events'); ?>'>Events</a></li>
+				<li><a href='<?php echo base_url('index.php/course/list_of_courses'); ?>'>Courses</a></li>
+				<li><a href='<?php echo base_url('index.php/program/list_of_programs'); ?>'>Programs</a></li>
 
 				<li class='has-sub'><a href='#'>User</a>
 					<ul>
