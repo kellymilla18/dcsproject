@@ -6,7 +6,7 @@
 					<div class="card">
 					    <!-- Header -->
 					    <div class="card-img">
-					    	<img src="css/temp/7.jpg">
+					    	<img src="<?php echo base_url('assets/css/temp/7.jpg'); ?>">
 					      <a href="#" class="rdmr">Read More</a>
 					    </div>
 					    <!-- Content-->
@@ -28,7 +28,7 @@
 					  <div class="card">
 					    <!-- Header -->
 					    <div class="card-img">
-					    	<img src="css/temp/8.jpg">
+					    	<img src="<?php echo base_url('assets/css/temp/8.jpg'); ?>">
 					      <a href="#" class="rdmr">Read More</a>
 					    </div>
 					    <!-- Content-->
@@ -50,7 +50,7 @@
 					  <div class="card">
 					    <!-- Header -->
 					    <div class="card-img">
-					    	<img src="css/temp/9.jpg">
+					    	<img src="<?php echo base_url('assets/css/temp/9.jpg'); ?>">
 					      <a href="#" class="rdmr">Read More</a>
 					    </div>
 					    <!-- Content-->

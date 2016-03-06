@@ -1,4 +1,6 @@
 	<!--start content-->
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/calendar.css'); ?>">
+
 	<div class="container">
 		<div class="content-wrapper">
 			<div class="content">

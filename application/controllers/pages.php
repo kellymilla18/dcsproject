@@ -8,4 +8,27 @@ class Pages extends CI_Controller {
 	public function home() {
 		$this->load->view('home');
 	}
+
+	public function login() {
+		$this->load->view('login');
+	}
+
+	public function events() {
+		$this->load->view('header');
+		$this->load->view('events');
+		$this->load->view('footer');
+	}
+
+
+	public function eventlist() {
+		$this->load->view('header');
+		$this->load->view('eventlist');
+		$this->load->view('footer');
+	}
+
+	public function calendar() {
+		$this->load->view('header');
+		$this->load->view('calendar');
+		$this->load->view('footer');
+	}
 }

@@ -3,23 +3,20 @@
 		<link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="<?php echo base_url('assets/functionalities/css/contactus.css'); ?>">
+		<link rel="stylesheet" href="<?php echo base_url('assets/css/home.css'); ?>">
 		<link rel="stylesheet" href="<?php echo base_url('assets/css/styles.css'); ?>">
 		<link rel="stylesheet" href="<?php echo base_url('assets/css/navbar-footer.css'); ?>">
 		<link rel="stylesheet" href="<?php echo base_url('assets/css/carousel.css'); ?>">
-		<link rel="stylesheet" href="<?php echo base_url('assets/css/events.css'); ?>">
-		<link rel="stylesheet" href="<?php echo base_url('assets/css/addevent.css'); ?>">
 
 		<script src="<?php echo base_url('assets/js/jquery-latest.min.js'); ?>" type="text/javascript"></script>
 		<script src="<?php echo base_url('assets/js/script.js'); ?>"></script>
 		<script src="<?php echo base_url('assets/js/home.js'); ?>"></script>
 		
-
 		<title>Adnu DCS</title>
-
 	</head>
 <body>
 <div class="toplogo">
-	<a href='home.html'><img src="<?php echo base_url('assets/css/temp/dcs-sign.png'); ?>" /></a>
+	<a href='#'><img src="<?php echo base_url('assets/css/temp/dcs-sign.png'); ?>" /></a>
 </div>
 
 <!--start carousel-->

@@ -4,9 +4,9 @@
 
 		<link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
 		<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="functionalities/css/contactus.css">
-		<link rel="stylesheet" href="css/styles.css">
-		<link rel="stylesheet" href="css/navbar-footer.css">
+		<link rel="stylesheet" href="<?php echo base_url('assets/functionalities/css/contactus.css'); ?>">
+		<link rel="stylesheet" href="<?php echo base_url('assets/css/styles.css'); ?>">
+		<link rel="stylesheet" href="<?php echo base_url('assets/css/navbar-footer.css'); ?>">
 
 	<style type="text/css">
 		body{
@@ -46,7 +46,7 @@
 	</style>
 </head>
 <body>
-	<img src="img/dcs-sign.png" height="60">
+	<img src="<?php echo base_url('assets/img/dcs-sign.png'); ?>" height="60">
 	    <form action="home.html">
 		<p><h2>Login to your DCS account</h2></p>
 		    <input type="text" placeholder="Username"/><br>
