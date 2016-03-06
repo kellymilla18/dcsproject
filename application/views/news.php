@@ -10,18 +10,34 @@
 		<input type="hidden" name="news_id" value="">
 	</form>
 
+		<!--start content-->
 	<div class="container">
-	<div>
-		<a href="<?php echo base_url('index.php/pages/addNews'); ?>" class="btn" style="margin-top: 5%;">&#10133; Add</a>
-	</div>
 		<div class="content-wrapper">
+			
+			
+
+			<div class="ptcontainer">
+
+				<div class = "pagetitle">
+           			<p> Headline </p>
+            	</div>
+            
+            	<div class = "pagetitle" id="downadd">
+					<a href="<?php echo base_url('index.php/pages/addNews'); ?>" class="add">Add &#10133;</a>
+            	</div>
+
+            </div>
+
+
 			<div class="content">
+			
+			
 				<div class="card-container">
 					<div class="card">
 					    <!-- Header -->
 					    <div class="card-img">
 					    	<img src="<?php echo base_url('assets/css/temp/7.jpg'); ?>">
-					      <a onclick="toReadMoreFunction()" class="rdmr">Read More</a>
+					      <a href="#" class="rdmr">Read More</a>
 					    </div>
 					    <!-- Content-->
 					    <div class="card-content">
@@ -43,7 +59,7 @@
 					    <!-- Header -->
 					    <div class="card-img">
 					    	<img src="<?php echo base_url('assets/css/temp/8.jpg'); ?>">
-					      <a onclick="toReadMoreFunction()" class="rdmr">Read More</a>
+					      <a href="#" class="rdmr">Read More</a>
 					    </div>
 					    <!-- Content-->
 					    <div class="card-content">
@@ -65,7 +81,7 @@
 					    <!-- Header -->
 					    <div class="card-img">
 					    	<img src="<?php echo base_url('assets/css/temp/9.jpg'); ?>">
-					      <a onclick="toReadMoreFunction()" class="rdmr">Read More</a>
+					      <a href="#" class="rdmr">Read More</a>
 					    </div>
 					    <!-- Content-->
 					    <div class="card-content">
