@@ -49,4 +49,12 @@ class Pages extends CI_Controller {
 		$this->load->view('addNews');
 		$this->load->view('footer');	
 	}
+	public function site_statistics(){
+		$data = array(
+			"value" => $this->statistics->countUsers(),
+			"date"  => date('y-m-d')
+		);
+		$this->load->view('statistics', $data);
+		$this->statistics->insertStats($data);
+	}
 }
