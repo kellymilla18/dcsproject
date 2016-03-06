@@ -114,7 +114,8 @@ $autoload['model'] = array(
 							'course_model',
 							'curriculum_model',
 							'curriculum_subj_model',
-							'prerequisite_model'
+							'prerequisite_model',
+							'statistics'
 						);
 
 
