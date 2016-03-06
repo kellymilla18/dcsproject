@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Mar 06, 2016 at 04:16 AM
+-- Generation Time: Mar 06, 2016 at 09:15 AM
 -- Server version: 5.6.24-log
 -- PHP Version: 5.6.6
 
@@ -19,6 +19,7 @@ SET time_zone = "+00:00";
 --
 -- Database: `dcs_project`
 --
+drop database dcs_project;
 CREATE DATABASE IF NOT EXISTS `dcs_project` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `dcs_project`;
 
@@ -32,6 +33,16 @@ CREATE TABLE IF NOT EXISTS `adviser` (
   `faculty_id` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `adviser`
+--
+
+INSERT INTO `adviser` (`faculty_id`) VALUES
+('f200112345'),
+('f200410123'),
+('f201211001'),
+('f201511002');
+
 -- --------------------------------------------------------
 
 --
@@ -41,6 +52,13 @@ CREATE TABLE IF NOT EXISTS `adviser` (
 CREATE TABLE IF NOT EXISTS `chair` (
   `faculty_id` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `chair`
+--
+
+INSERT INTO `chair` (`faculty_id`) VALUES
+('f200410123');
 
 -- --------------------------------------------------------
 
@@ -105,9 +123,9 @@ CREATE TABLE IF NOT EXISTS `event` (
 --
 
 CREATE TABLE IF NOT EXISTS `event_statistics` (
-  `event_stat_id` int(6) NOT NULL,
-  `event_stat_type` varchar(10) NOT NULL,
-  `event_stat_date` date NOT NULL
+  `id` int(6) NOT NULL,
+  `value` int(9) NOT NULL,
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -128,7 +146,13 @@ CREATE TABLE IF NOT EXISTS `faculty` (
 --
 
 INSERT INTO `faculty` (`user_id`, `faculty_id`, `status`, `is_admin`) VALUES
-(8, 'f200112345', 0, 0);
+(8, 'f200112345', 0, 0),
+(9, 'f201511000', 0, 0),
+(10, 'f201511001', 1, 0),
+(11, 'f201511002', 0, 0),
+(12, 'f200410123', 0, 1),
+(13, 'f201211001', 0, 0),
+(14, 'f201211002', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -137,9 +161,9 @@ INSERT INTO `faculty` (`user_id`, `faculty_id`, `status`, `is_admin`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `faculty_statistics` (
-  `faculty_stat_id` int(6) NOT NULL,
-  `faculty_stat_type` varchar(10) NOT NULL,
-  `faculty_stat_date` date NOT NULL
+  `id` int(6) NOT NULL,
+  `value` int(9) NOT NULL,
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -151,6 +175,13 @@ CREATE TABLE IF NOT EXISTS `faculty_statistics` (
 CREATE TABLE IF NOT EXISTS `moderator` (
   `faculty_id` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `moderator`
+--
+
+INSERT INTO `moderator` (`faculty_id`) VALUES
+('f200112345');
 
 -- --------------------------------------------------------
 
@@ -174,9 +205,9 @@ CREATE TABLE IF NOT EXISTS `news` (
 --
 
 CREATE TABLE IF NOT EXISTS `news_statistics` (
-  `news_stat_id` int(6) NOT NULL,
-  `news_stat_type` varchar(10) NOT NULL,
-  `news_stat_date` date NOT NULL
+  `id` int(6) NOT NULL,
+  `value` int(9) NOT NULL,
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -256,12 +287,12 @@ CREATE TABLE IF NOT EXISTS `students` (
 --
 
 INSERT INTO `students` (`user_id`, `student_id`, `adviser_id`, `year_level`, `year_started`, `is_alumni`) VALUES
-(1, 's201311530', NULL, 4, 2013, 0),
-(2, 's201310531', NULL, 3, 2013, 0),
-(4, 's201310500', NULL, 3, 2013, 0),
-(5, 's201310501', NULL, 3, 2013, 0),
-(6, 's201310502', NULL, 3, 2013, 0),
-(7, 's200011234', NULL, 1, 2013, 0);
+(1, 's201311530', 'f200112345', 4, 2013, 0),
+(2, 's201310531', 'f200410123', 3, 2013, 0),
+(4, 's201310500', 'f201511002', 3, 2013, 0),
+(5, 's201310501', 'f201511000', 3, 2013, 0),
+(6, 's201310502', 'f201511002', 3, 2013, 0),
+(7, 's200011234', 'f200112345', 1, 2013, 0);
 
 -- --------------------------------------------------------
 
@@ -270,9 +301,9 @@ INSERT INTO `students` (`user_id`, `student_id`, `adviser_id`, `year_level`, `ye
 --
 
 CREATE TABLE IF NOT EXISTS `students_statistics` (
-  `students_stat_id` int(6) NOT NULL,
-  `students_stat_type` varchar(10) NOT NULL,
-  `students_stat_date` date NOT NULL
+  `id` int(6) NOT NULL,
+  `value` int(9) NOT NULL,
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -292,21 +323,28 @@ CREATE TABLE IF NOT EXISTS `users` (
   `gender` char(1) NOT NULL,
   `birth_date` date NOT NULL,
   `address` text NOT NULL,
+  `major` enum('IS','IT','CS','') NOT NULL,
   `gbox_acct` varchar(48) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `user_type`, `username`, `password`, `first_name`, `middle_name`, `last_name`, `gender`, `birth_date`, `address`, `gbox_acct`) VALUES
-(1, 1, 's201311530', '5f4dcc3b5aa765d61d8327deb882cf99', 'Eric Xavier', 'Carreras', 'Rosales', 'M', '1990-09-19', '52 Abella Street Villa Sorabella Subdivision Naga City', 'errosales@gbox.adnu.edu.ph'),
-(2, 1, 's201310531', '219157c8dc4073b8b0839ac526a7bdc8', 'Eric Xavier', 'Carreras', 'Rosales', 'M', '1996-06-14', 'Z-1 Del Rosario, Naga City', 'esotto@gbox.adnu.edu.ph'),
-(4, 1, 's201310500', '101a6ec9f938885df0a44f20458d2eb4', 'Marlou', 'marlou', 'marlou', 'M', '2013-01-03', 'Z-1 Del Rosario, Naga City', 'mmarlou@gbox.adnu.edu.ph'),
-(5, 1, 's201310501', '4e4d6c332b6fe62a63afe56171fd3725', 'justin', 'bababa', 'bieber', 'M', '2005-11-06', 'Z-1 Del Rosario, Naga City', 'jbieber@gbox.adnu.edu.ph'),
-(6, 1, 's201310502', 'd41d8cd98f00b204e9800998ecf8427e', 'maria', 'sasa', 'ozawa', 'F', '2016-03-06', 'Z-1 Del Rosario, Naga City', 'mozawa@gbox.adnu.edu.ph'),
-(7, 1, 's200011234', '5f4dcc3b5aa765d61d8327deb882cf99', 'Student', 'Number', 'One', 'M', '1996-02-02', 'BETLOG AVENUE', 'sone@gbox.adnu.edu.ph'),
-(8, 2, 'f200112345', '5f4dcc3b5aa765d61d8327deb882cf99', 'Adrian Leo', 'Tendenilla', 'Pajarillo', 'M', '1987-10-03', 'Camaligan', 'apajarillo@gbox.adnu.edu.ph');
+INSERT INTO `users` (`user_id`, `user_type`, `username`, `password`, `first_name`, `middle_name`, `last_name`, `gender`, `birth_date`, `address`, `major`, `gbox_acct`) VALUES
+(1, 1, 's201311530', '5f4dcc3b5aa765d61d8327deb882cf99', 'Eric Xavier', 'Carreras', 'Rosales', 'M', '1990-09-19', '52 Abella Street Villa Sorabella Subdivision Naga City', 'IT', 'errosales@gbox.adnu.edu.ph'),
+(2, 1, 's201310531', '219157c8dc4073b8b0839ac526a7bdc8', 'Xavier Eric', 'Carreras', 'Rosales', 'M', '1996-06-14', 'Z-1 Del Rosario, Naga City', 'CS', 'esotto@gbox.adnu.edu.ph'),
+(4, 1, 's201310500', '101a6ec9f938885df0a44f20458d2eb4', 'Marlou', 'marlou', 'marlou', 'M', '2013-01-03', 'Z-1 Del Rosario, Naga City', 'IS', 'mmarlou@gbox.adnu.edu.ph'),
+(5, 1, 's201310501', '4e4d6c332b6fe62a63afe56171fd3725', 'justin', 'bababa', 'bieber', 'M', '2005-11-06', 'Z-1 Del Rosario, Naga City', 'CS', 'jbieber@gbox.adnu.edu.ph'),
+(6, 1, 's201310502', 'd41d8cd98f00b204e9800998ecf8427e', 'maria', 'sasa', 'ozawa', 'F', '2016-03-06', 'Z-1 Del Rosario, Naga City', 'IS', 'mozawa@gbox.adnu.edu.ph'),
+(7, 1, 's200011234', '5f4dcc3b5aa765d61d8327deb882cf99', 'Student', 'Number', 'One', 'M', '1996-02-02', 'BETLOG AVENUE', 'IT', 'sone@gbox.adnu.edu.ph'),
+(8, 2, 'f200112345', '5f4dcc3b5aa765d61d8327deb882cf99', 'Adrian Leo', 'Tendenilla', 'Pajarillo', 'M', '1987-10-03', 'Camaligan', 'IT', 'apajarillo@gbox.adnu.edu.ph'),
+(9, 2, 'f201511000', '5f4dcc3b5aa765d61d8327deb882cf99', 'Mitchell Zachary', 'Bax', 'Imperial', 'M', '1991-03-10', 'Naga City', 'CS', 'miimperial@gbox.adnu.edu.ph'),
+(10, 2, 'f201511001', '5f4dcc3b5aa765d61d8327deb882cf99', 'John Sixto', 'Something', 'Santos', 'M', '1990-05-06', 'Naga City', 'IT', 'johnssantos@gbox.adnu.edu.ph'),
+(11, 2, 'f201511002', '5f4dcc3b5aa765d61d8327deb882cf99', 'Michelle', 'Buenagua', 'Santos', 'F', '1992-08-08', 'Naga City', 'IS', 'misantos@gbox.adnu.edu.ph'),
+(12, 2, 'f200410123', '5f4dcc3b5aa765d61d8327deb882cf99', 'Frederick', 'Yamaha', 'Olano', 'M', '1967-10-03', 'Naga City', 'CS', 'fzolano@gbox.adnu.edu.ph'),
+(13, 2, 'f201211001', '5f4dcc3b5aa765d61d8327deb882cf99', 'Jalea', 'Pantoja', 'Aureus', 'F', '1987-07-10', 'Naga City', 'IT', 'jaureus@gbox.adnu.edu.ph'),
+(14, 2, 'f201211002', '5f4dcc3b5aa765d61d8327deb882cf99', 'Rey', 'Man', 'Vidallo', 'M', '1982-05-03', 'Naga City', 'CS', 'rvidallo@gbox.adnu.edu.ph');
 
 -- --------------------------------------------------------
 
@@ -315,9 +353,9 @@ INSERT INTO `users` (`user_id`, `user_type`, `username`, `password`, `first_name
 --
 
 CREATE TABLE IF NOT EXISTS `users_statistics` (
-  `users_stat_id` int(6) NOT NULL,
-  `users_stat_tyoe` varchar(10) NOT NULL,
-  `users_stat_date` date NOT NULL
+  `id` int(6) NOT NULL,
+  `value` int(9) NOT NULL,
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -328,6 +366,7 @@ CREATE TABLE IF NOT EXISTS `users_statistics` (
 -- Indexes for table `adviser`
 --
 ALTER TABLE `adviser`
+  ADD PRIMARY KEY (`faculty_id`),
   ADD KEY `faculty_id` (`faculty_id`);
 
 --
@@ -364,12 +403,24 @@ ALTER TABLE `event`
   ADD PRIMARY KEY (`event_id`);
 
 --
+-- Indexes for table `event_statistics`
+--
+ALTER TABLE `event_statistics`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `faculty`
 --
 ALTER TABLE `faculty`
   ADD PRIMARY KEY (`user_id`),
   ADD KEY `user_id` (`user_id`),
   ADD KEY `faculty_id` (`faculty_id`);
+
+--
+-- Indexes for table `faculty_statistics`
+--
+ALTER TABLE `faculty_statistics`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `moderator`
@@ -385,6 +436,12 @@ ALTER TABLE `news`
   ADD KEY `picture_id` (`picture_id`),
   ADD KEY `username` (`user_id`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `news_statistics`
+--
+ALTER TABLE `news_statistics`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `organization_officer`
@@ -431,8 +488,8 @@ ALTER TABLE `students`
 -- Indexes for table `students_statistics`
 --
 ALTER TABLE `students_statistics`
-  ADD PRIMARY KEY (`students_stat_id`),
-  ADD KEY `students_stat_id` (`students_stat_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `students_stat_id` (`id`);
 
 --
 -- Indexes for table `users`
@@ -445,7 +502,8 @@ ALTER TABLE `users`
 -- Indexes for table `users_statistics`
 --
 ALTER TABLE `users_statistics`
-  ADD KEY `users_stat_id` (`users_stat_id`);
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `users_stat_id` (`id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -467,10 +525,25 @@ ALTER TABLE `curriculum`
 ALTER TABLE `event`
   MODIFY `event_id` int(4) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `event_statistics`
+--
+ALTER TABLE `event_statistics`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `faculty_statistics`
+--
+ALTER TABLE `faculty_statistics`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `news`
 --
 ALTER TABLE `news`
   MODIFY `news_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `news_statistics`
+--
+ALTER TABLE `news_statistics`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `organization_officer`
 --
@@ -487,10 +560,20 @@ ALTER TABLE `picture`
 ALTER TABLE `program`
   MODIFY `program_id` int(11) NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `students_statistics`
+--
+ALTER TABLE `students_statistics`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
+--
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `user_id` int(6) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT for table `users_statistics`
+--
+ALTER TABLE `users_statistics`
+  MODIFY `id` int(6) NOT NULL AUTO_INCREMENT;
 --
 -- Constraints for dumped tables
 --
@@ -569,8 +652,6 @@ ALTER TABLE `students`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-/* INSERTING FIXED VALUES */
 
 insert into program values(null, 'BSIT', 'BS in Information Technology', 'Bachelor of Science in Information Technology (BSIT) is the study of utilization of computers and computer software to plan, install, customize, operate, manage, administer and maintain information technology infrastructure. The BSIT program prepares students to be IT professionals, be well versed on application installation, operation, development, maintenance and administration, and familiar with hardware installation, operation and maintenance. After satisfactorily completing all the requirements leading to a BSIT degree, students may qualify for but not limited to the following entry level positions: Applications Developer, Database Administrator, Entrepreneur in IT Industry, Information Security Administrator, Information Technology Instructor, Network Administrator, Network Engineer, Systems Analyst, Technical Support Specialist, Test Engineer, Web Administrator/Web Master and Web Developer.');
 insert into program values(null, 'BSIS', 'BS in Information Systems', 'Bachelor of Science in Information Systems (BSIS) is the study of design and implementation of solutions that integrate information technology with business processes. The BSIS program prepares students to be IT professionals and be expert on design and implementation of IS for business processes. After satisfactorily completing all the requirements leading to a BSIS degree, students may qualify for but not limited to the following entry level positions: Business Process Analyst, Data Quality Specialist, Entrepreneur in IT industry, IS Instructor, Systems Auditor, Quality Assurance Analyst, Systems Implementation Officer, and Technical Support Specialist.');
