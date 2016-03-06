@@ -69,11 +69,10 @@
 	<div class="container">
 		<div id='cssmenu'>
 			<ul>
-				<li><a href='#'>About</a></li>
-				<li><a href='#'>Admission</a></li>
-				<li><a href='#'>Faculty</a></li>
-				<li><a href='#'>Policies</a></li>
-				<li><a href="<?php echo base_url('index.php/pages/news')?>">News</a></li>
+				
+				<li><a href="<?php echo base_url('index.php/pages/news'); ?>">News</a></li>
+				<li><a href='#'>Events</a></li>
+				<li><a href='#'>Program</a></li>
 
 				<li class='has-sub'><a href='#'>User</a>
 					<ul>

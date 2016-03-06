@@ -2,12 +2,10 @@
 	<div class="container">
 		<div class="content-wrapper">
 			<a href="<?php echo base_url('index.php/pages/addNews'); ?>" class="btn" style="margin-top: 5%;">&#10133; Add</a>
+			
 			<div class="content">
-				<div style="font-size: 30px; margin-left: 5%; margin-top: -5%;">
-					<h2 >Headline</h2>
-				</div>
 
-				<div class="card-container" style="margin-left: -22%">
+				<div class="card-container">
 					<div class="card">
 					    <!-- Header -->
 					    <div class="card-img">
