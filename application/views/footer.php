@@ -1,7 +1,7 @@
 	<!--start footer-->
 	<footer>
 		<div class="lookWrap">
-			<a class="btn btn-lg btn-success js-modal" href="#" role="button" data-toggle="modal" data-target="#demoModal"><h2>Contact Us</h2></a>
+			<a class="js-modal" href="#" role="button" data-toggle="modal" data-target="#demoModal"><h2>Contact Us</h2></a>
 			<div id="look">
 				<div class="contactus">
 					<h3>Ateneo de Naga University</h3>
