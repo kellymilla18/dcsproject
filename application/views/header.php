@@ -36,6 +36,7 @@
 				<li><a href='#'>Admission</a></li>
 				<li><a href='#'>Faculty</a></li>
 				<li><a href='#'>Policies</a></li>
+				<li><a href="<?php echo base_url('index.php/pages/news'); ?>">News</a></li>
 
 				<li class='has-sub'><a href='#'>User</a>
 					<ul>
