@@ -7,10 +7,7 @@
 		<link rel="stylesheet" href="<?php echo base_url('assets/css/navbar-footer.css'); ?>">
 		<link rel="stylesheet" href="<?php echo base_url('assets/css/carousel.css'); ?>">
 		<link rel="stylesheet" href="<?php echo base_url('assets/css/events.css'); ?>">
-		<link rel="stylesheet" href="<?php echo base_url('assets/css/addevent.css'); ?>"> 
-		<link rel="stylesheet" href="<?php echo base_url('assets/css/eventlist.css'); ?>"> 
-		<link rel="stylesheet" href="<?php echo base_url('assets/css/home.css'); ?>">
-
+		<link rel="stylesheet" href="<?php echo base_url('assets/css/addevent.css'); ?>">
 
 		<script src="<?php echo base_url('assets/js/jquery-latest.min.js'); ?>" type="text/javascript"></script>
 		<script src="<?php echo base_url('assets/js/script.js'); ?>"></script>
@@ -61,4 +58,5 @@
 		</div>
 	</div>
 </div>
+
 <!--end navbar-->

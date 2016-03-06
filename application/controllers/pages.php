@@ -31,4 +31,10 @@ class Pages extends CI_Controller {
 		$this->load->view('calendar');
 		$this->load->view('footer');
 	}
+
+	public function news(){
+		$this->load->view('header');
+		$this->load->view('news');
+		$this->load->view('footer');
+	}
 }
