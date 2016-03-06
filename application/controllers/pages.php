@@ -67,11 +67,37 @@ class Pages extends CI_Controller {
 		$this->load->view('footer');	
 	}
 	public function site_statistics(){
-		$data = array(
+		$data_users = array(
 			"value" => $this->statistics->countUsers(),
 			"date"  => date('y-m-d')
 		);
+
+		$data_students = array(
+			"value" => $this->statistics->countStudents(),
+			"date"  => date('y-m-d')
+		);
+
+		$data_faculty = array(
+			"value" => $this->statistics->countFaculty(),
+			"date"  => date('y-m-d')
+		);
+
+		$data_news = array(
+			"value" => $this->statistics->countNews(),
+			"date"  => date('y-m-d')
+		);		
+
+		$data = array(
+			'users'    => $data_users,
+			'students' => $data_students,
+			'faculty'  => $data_faculty,
+			'news'     => $data_news,
+		);
+
 		$this->load->view('statistics', $data);
-		$this->statistics->insertStats($data);
+		$this->statistics->insertUsersStats($data_users);
+		$this->statistics->insertStudStats($data_students);
+		$this->statistics->insertFacultyStats($data_faculty);
+		$this->statistics->insertNewsStats($data_news);	
 	}
 }

@@ -1,123 +1,23 @@
-<table>
+<table border="2.5px">
 	<tr>
-		<td><?php echo $value; ?></td>
+		<td>USER COUNT</td>
+		<td><?php echo $users['value']; ?></td>
+	</tr>
+	<tr>
+		<td>STUDENT COUNT</td>
+		<td><?php echo $students['value']; ?></td>
+	</tr>
+	<tr>
+		<td>FACULTY COUNT</td>
+		<td><?php echo $faculty['value']; ?></td>
+	</tr>
+	<tr>
+		<td>NEWS COUNT</td>
+		<td><?php echo $news['value']; ?></td>
 	</tr>
 </table>
 
 		<?php
-			/*
-				Site Statistics Module
-
-				@Authors:
-					Maiko Franisco Rugeria
-					Jan Brian Despi
-					Michael Romero
-					Christian Lizardo
-			*/
-
-			//--------------------------------------------------Functions---------------------------------------------------
-			/*
-				This function counts all the users registered
-				in the system. Users include faculty members
-				and students.
-
-				@parameters: None
-				@return: None
-			*/
-			// function countUsers()
-			// {
-			// 	$usercount_value = 0;
-			// 	$usercount_sql = "SELECT * FROM users";
-			// 	$usercount_result = mysqli_query($GLOBALS["conn"], $usercount_sql);
-			// 	if (mysqli_num_rows($usercount_result) > 0)
-			// 	{
-			// 	    while($row = mysqli_fetch_assoc($usercount_result))
-			// 	        $usercount_value++;
-		 //    	}
-
-			// 	echo "Number of Users: " . $usercount_value . "<br>";
-
-			// 	$dateStamp_users = date("Ymd");
-		 //    	$insertUsercount_sql = "INSERT INTO user_statistics (`value`, `date`) values (" . $usercount_value .  ", " . $dateStamp_users . ")";
-			// 	$insertUsercount_result = mysqli_query($GLOBALS["conn"], $insertUsercount_sql);
-			// }
-
-			/*
-				This function counts all the users that are
-				registered as students.
-
-				@parameters: None
-				@return: None
-			*/
-			// function countStudents()
-			// {
-			// 	$studentcount_value = 0;
-			// 	$studentcount_sql = "SELECT * FROM students";
-			// 	$studentcount_result = mysqli_query($GLOBALS["conn"], $studentcount_sql);
-			// 	if (mysqli_num_rows($studentcount_result) > 0)
-			// 	{
-			// 	    while($row = mysqli_fetch_assoc($studentcount_result))
-			// 	        $studentcount_value++;
-		 //    	}
-
-			// 	echo "Number of Students: " . $studentcount_value . "<br>";
-
-			// 	$dateStamp_students = date("Ymd");
-			// 	$insertStudentcount_sql = "INSERT INTO student_statistics (`value`, `date`) values (" . $studentcount_value .  ", " . $dateStamp_students . ")";
-			// 	$insertStudentcount_result = mysqli_query($GLOBALS["conn"], $insertStudentcount_sql);
-			// }
-
-			/*
-				This function counts all the users that are
-				registered as faculty.
-
-				@parameters: None
-				@return: None
-			*/
-			// function countFaculty()
-			// {
-			// 	$facultycount_value = 0;
-			// 	$facultycount_sql = "SELECT * FROM faculty";
-			// 	$facultycount_result = mysqli_query($GLOBALS["conn"], $facultycount_sql);
-			// 	if (mysqli_num_rows($facultycount_result) > 0)
-			// 	{
-			// 	    while($row = mysqli_fetch_assoc($facultycount_result))
-			// 	        $facultycount_value++;
-		 //    	}
-
-			// 	echo "Number of Faculty Members: " . $facultycount_value . "<br>";
-
-			// 	$dateStamp_faculty = date("Ymd");
-			// 	$insertFacultycount_sql = "INSERT INTO faculty_statistics (`value`, `date`) values (" . $facultycount_value .  ", " . $dateStamp_faculty . ")";
-			// 	$insertFacultycount_result = mysqli_query($GLOBALS["conn"], $insertFacultycount_sql);
-			// }
-
-			/*
-				This function counts all the news that are
-				posted on the site.
-
-				@parameters: None
-				@return: None
-			*/
-			// function countNews()
-			// {
-			// 	$newscount_value = 0;
-			// 	$newscount_sql = "SELECT * FROM news";
-			// 	$newscount_result = mysqli_query($GLOBALS["conn"], $newscount_sql);
-			// 	if (mysqli_num_rows($newscount_result) > 0)
-			// 	{
-			// 	    while($row = mysqli_fetch_assoc($newscount_result))
-			// 	        $newscount_value++;
-		 //    	}
-
-			// 	echo "Number of News Posted: " . $newscount_value . "<br>";
-
-			// 	$dateStamp_news = date("Ymd");
-			// 	$insertNewscount_sql = "INSERT INTO news_statistics (`value`, `date`) values (" . $newscount_value .  ", " . $dateStamp_news . ")";
-			// 	$insertNewscount_result = mysqli_query($GLOBALS["conn"], $insertNewscount_sql);
-			
-			// }
-
 			/*
 				This function counts all the events that are
 				posted on the site.

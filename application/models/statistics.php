@@ -6,10 +6,34 @@ class Statistics extends CI_Model{
 	 	return $this->db->count_all('users');
 	}
 
-	public function insertStats($data){
-		$this->db->insert('users', $data);
+	public function countStudents(){
+		return $this->db->count_all('students');
+	}
+
+	public function countFaculty(){
+		return $this->db->count_all('faculty');
+	}
+
+	public function countNews(){
+		return $this->db->count_all('news');	
+	}
+
+	public function insertUsersStats($data){
+		$this->db->insert('users_statistics', $data);
+	}
+
+	public function insertStudStats($data){
+		$this->db->insert('students_statistics', $data);
+	}
+
+	public function insertFacultyStats($data){
+		$this->db->insert('faculty_statistics', $data);
 	}
 	
+	public function insertNewsStats($data){
+		$this->db->insert('news_statistics', $data);
+	}
+
 	// public function addContact($data){
 	// 	$this->db->insert('contact', $data);
 	// 	return ($this->db->affected_rows()!=1) ? false : true;
