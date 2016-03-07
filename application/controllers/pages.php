@@ -33,6 +33,12 @@ class Pages extends CI_Controller {
 	}
 
 	public function news(){
+		$data['title'] = $this->input->post('title');
+		$data['picture'] = $this->input->file('picture');
+		$data['details'] = $this->input->post('details');
+
+		$this->model_news->insertNews($data);
+
 		$this->load->view('header');
 		$this->load->view('news');
 		$this->load->view('footer');
@@ -45,8 +51,19 @@ class Pages extends CI_Controller {
 	}
 
 	public function addNews() {
+		$this->load->database();
+		$this->load->model('model_news');
+
+		$data['users'] = $this->model_news->getUsers();
+
+		$this->load->view('header', $data);
+		$this->load->view('addNews', $data);
+		$this->load->view('footer', $data);	
+	}
+
+	public function readMore() {
 		$this->load->view('header');
-		$this->load->view('addNews');
+		$this->load->view('readMore');
 		$this->load->view('footer');	
 	}
 	public function site_statistics(){

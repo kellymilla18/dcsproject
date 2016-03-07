@@ -39,7 +39,7 @@
 				<li><a href='<?php echo base_url('index.php/pages/events'); ?>'>Events</a></li>
 				<li><a href='<?php echo base_url('index.php/course/list_of_courses'); ?>'>Courses</a></li>
 				<li><a href='<?php echo base_url('index.php/program/list_of_programs'); ?>'>Programs</a></li>
-
+				
 				<li class='has-sub'><a href='#'>User</a>
 					<ul>
 						<li><a href='#'>Log Out</a></li>
