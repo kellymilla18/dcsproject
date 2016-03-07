@@ -34,7 +34,7 @@ class Pages extends CI_Controller {
 
 	public function news(){
 		$data['title'] = $this->input->post('title');
-		$data['picture'] = $this->input->file('picture');
+		$data['picture'] = $this->input->post('picture');
 		$data['details'] = $this->input->post('details');
 
 		$this->model_news->insertNews($data);
